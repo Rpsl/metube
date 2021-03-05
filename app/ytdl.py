@@ -35,7 +35,7 @@ class Download:
     def __init__(self, download_dir, quality, info):
         self.download_dir = download_dir
         if quality == 'best':
-            self.format = None
+            self.format = '(bestvideo[vcodec^=av01][height>=1080][fps>30]/bestvideo[vcodec=vp9.2][height>=1080][fps>30]/bestvideo[vcodec=vp9][height>=1080][fps>30]/bestvideo[vcodec^=av01][height>=1080]/bestvideo[vcodec=vp9.2][height>=1080]/bestvideo[vcodec=vp9][height>=1080]/bestvideo[height>=1080]/bestvideo[vcodec^=av01][height>=720][fps>30]/bestvideo[vcodec=vp9.2][height>=720][fps>30]/bestvideo[vcodec=vp9][height>=720][fps>30]/bestvideo[vcodec^=av01][height>=720]/bestvideo[vcodec=vp9.2][height>=720]/bestvideo[vcodec=vp9][height>=720]/bestvideo[height>=720]/bestvideo)+(bestaudio[acodec=opus]/bestaudio)/best'
         elif quality in ('1440p', '1080p', '720p', '480p'):
             res = quality[:-1]
             self.format = f'bestvideo[height<={res}]+bestaudio/best[height<={res}]'
